@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  max-width: 800px;
+  max-width: 1000px;
   margin: 20px auto;
-  height: 100vh;
 `;
 
-export const Post = styled.div`
+export const StyledPost = styled.div`
   height: 100px;
   display: grid;
   grid-template-areas:
@@ -29,10 +28,16 @@ export const Post = styled.div`
 export const PostHeader = styled.h2`
   font-size: 40px;
   grid-area: header;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const PostAdditionalInfo = styled.p`
   color: #777;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const Subtitle = styled(PostAdditionalInfo)`
@@ -60,10 +65,24 @@ export const PostBottom = styled.div`
 
 export const BackButton = styled.button`
   padding: 10px 20px;
-  background-color: #cacaca;
+  background-color: #ddd;
 
   font-size: 20px;
   &:hover {
-    background-color: #ddd;
+    background-color: #eee;
   }
+`;
+
+export const ArticleHeader = styled.h1`
+  margin-bottom: 25px;
+`;
+
+export const ArticleImg = styled.img`
+  width: 100%;
+  margin-bottom: 30px;
+`;
+
+export const ArticleContent = styled.p`
+  font-size: 22px;
+  margin-bottom: 30px;
 `;

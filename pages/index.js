@@ -1,66 +1,31 @@
 import Router from "next/router";
 import Head from "next/head";
-
-import {
-  Wrapper,
-  PostHeader,
-  Subtitle,
-  Author,
-  CreationDate,
-  PostImg,
-  Post,
-  PostBottom,
-} from "../components/styled";
-
-const goToId = () => {
-  Router.push("post/1777");
-};
-
-export default function Index({ json }) {
-  console.log(json);
+import { Wrapper } from "../components/styled";
+import ShowPosts from "../components/ShowPosts";
+export default function Index({ posts }) {
   return (
     <div className="App">
       <Head>
         <meta name="keywords" content="medium, bolet jormal, new york times" />
         <meta name="description" content="posts" />
+        <title>Crypto journal</title>
       </Head>
+
       <Wrapper>
-        <Post onClick={goToId}>
-          <PostHeader>News</PostHeader>
-          <Subtitle>How are you?</Subtitle>
-          <PostBottom>
-            <Author>Ivan Ivanov</Author>
-            <CreationDate>Oct 15 </CreationDate>
-          </PostBottom>
-          <PostImg src="https://miro.medium.com/max/750/0*pGHUnhhI9fiv3RcS.jpg" />
-        </Post>
-        <Post>
-          <PostHeader>News</PostHeader>
-          <Subtitle>How are you?</Subtitle>
-          <PostBottom>
-            <Author>Ivan Ivanov</Author>
-            <CreationDate>Oct 15 </CreationDate>
-          </PostBottom>
-          <PostImg src="https://miro.medium.com/max/750/0*pGHUnhhI9fiv3RcS.jpg" />
-        </Post>
-        <Post>
-          <PostHeader>News</PostHeader>
-          <Subtitle>How are you?</Subtitle>
-          <PostBottom>
-            <Author>Ivan Ivanov</Author>
-            <CreationDate>Oct 15 </CreationDate>
-          </PostBottom>
-          <PostImg src="https://miro.medium.com/max/750/0*pGHUnhhI9fiv3RcS.jpg" />
-        </Post>
+        <ShowPosts posts={posts.articles} />
       </Wrapper>
     </div>
   );
 }
 
-Index.getInitialProps = async (ctx) => {
-  const res = await fetch(
-    "http://newsapi.org/v2/top-headlines?country=ru&apiKey=API_KEY"
-  );
-  const json = await res.json();
-  return { json };
+Index.getInitialProps = async () => {
+  let url =
+    process.env.REQUEST_ADDRESS +
+    process.env.COUNTRY +
+    "apiKey=" +
+    process.env.API_KEY;
+
+  const res = await fetch(url);
+  const posts = await res.json();
+  return { posts };
 };

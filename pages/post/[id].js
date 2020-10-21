@@ -1,26 +1,45 @@
 import Head from "next/head";
-import { BackButton } from "../../components/styled";
-import Router, { useRouter } from "next/router";
-export default function Post() {
-  const {
-    query: { id },
-  } = useRouter();
+import { useRouter } from "next/router";
+import HomeButton from "../../components/HomeButton";
+
+import {
+  Wrapper,
+  ArticleHeader,
+  ArticleImg,
+  ArticleContent,
+} from "../../components/styled";
+
+export default function Post({ posts }) {
+  const { query } = useRouter();
+  const { articles } = posts;
+
+  let article = articles.filter((article) => article?.publishedAt === query.id);
+  article = article[0];
 
   return (
     <>
       <Head>
         <meta name="keywords" content="post" />
         <meta name="description" content="This is posts from my site" />
-        <title>Post {id}</title>
+        <title>{article.title}</title>
       </Head>
-      <h1>Hello world</h1>
-      <BackButton
-        onClick={() => {
-          Router.push("/");
-        }}
-      >
-        Go back to Home!
-      </BackButton>
+      <Wrapper>
+        <ArticleHeader>{article.title}</ArticleHeader>
+        <ArticleImg src={article.urlToImage} />
+        <ArticleContent>{article.content}</ArticleContent>
+        <HomeButton />
+      </Wrapper>
     </>
   );
 }
+
+Post.getInitialProps = async (ctx) => {
+  let url =
+    process.env.REQUEST_ADDRESS +
+    process.env.COUNTRY +
+    "apiKey=" +
+    process.env.API_KEY;
+  const res = await fetch(url);
+  const posts = await res.json();
+  return { posts };
+};
