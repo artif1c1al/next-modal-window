@@ -16,7 +16,8 @@ const goToId = () => {
   Router.push("post/1777");
 };
 
-export default function Index() {
+export default function Index({ json }) {
+  console.log(json);
   return (
     <div className="App">
       <Head>
@@ -55,3 +56,11 @@ export default function Index() {
     </div>
   );
 }
+
+Index.getInitialProps = async (ctx) => {
+  const res = await fetch(
+    "http://newsapi.org/v2/top-headlines?country=ru&apiKey=API_KEY"
+  );
+  const json = await res.json();
+  return { json };
+};
