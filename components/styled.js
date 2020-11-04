@@ -1,88 +1,44 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-export const Wrapper = styled.div`
-  max-width: 1000px;
-  margin: 20px auto;
-`;
-
-export const StyledPost = styled.div`
-  height: 100px;
-  display: grid;
-  grid-template-areas:
-    "header img"
-    "subtitle img"
-    "bottom img";
-  grid-template-columns: 1fr 100px;
-  grid-template-rows: auto;
-  background-color: #fcfcfc;
-  margin-bottom: 20px;
-
-  &:hover {
-    background-color: #eee;
-  }
-  &:active {
-    background-color: #ccc;
-  }
-`;
-
-export const PostHeader = styled.h2`
-  font-size: 40px;
-  grid-area: header;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`;
-
-export const PostAdditionalInfo = styled.p`
-  color: #777;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`;
-
-export const Subtitle = styled(PostAdditionalInfo)`
-  font-size: 20px;
-  grid-area: subtitle;
-`;
-
-export const Author = styled(PostAdditionalInfo)`
-  margin-right: 20px;
-`;
-
-export const CreationDate = styled(PostAdditionalInfo)``;
-
-export const PostImg = styled.img`
-  height: 100%;
-  grid-area: img;
-`;
-
-export const PostBottom = styled.div`
-  grid-area: bottom;
-  display: flex;
-  justify-content: start;
+export const StyledModalWindowBackground = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  display: ${(props) => props.display || "none"};
+  background-color: rgba(0, 0, 0, 0.4);
   align-items: center;
+  justify-content: center;
+  z-index: 1;
 `;
 
-export const BackButton = styled.button`
-  padding: 10px 20px;
-  background-color: #ddd;
-
-  font-size: 20px;
-  &:hover {
-    background-color: #eee;
+const modalfall = keyframes`
+  from {
+    top: -400px;
+    /* opacity: 0; */
+  }
+  to {
+    top: 0;
+    /* opacity: 1; */
   }
 `;
 
-export const ArticleHeader = styled.h1`
-  margin-bottom: 25px;
+export const StyledModalWindow = styled.div`
+  max-width: 970px;
+  min-height: 400px;
+  background-color: whitesmoke;
+  border-radius: 4px;
+  padding: 30px 50px;
+  position: relative;
+  z-index: 2;
+  animation: ${modalfall} 0.3s ease-in;
 `;
 
-export const ArticleImg = styled.img`
+export const StyledCross = styled.span`
+  position: relative;
   width: 100%;
-  margin-bottom: 30px;
-`;
-
-export const ArticleContent = styled.p`
-  font-size: 22px;
-  margin-bottom: 30px;
+  top: -10px;
+  /* left: 100%; */
+  left: 100%;
+  font-size: 30px;
 `;
