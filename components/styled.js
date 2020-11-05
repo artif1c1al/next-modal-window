@@ -161,8 +161,7 @@ export const StyledLabel = styled.label`
 
 export const StyledRadioButton = styled.input`
   margin-right: 15px;
-  height: 18px;
-  width: 18px;
+  transform: scale(1.3);
 `;
 
 export const StyledCardLabel = styled.label`
@@ -171,9 +170,8 @@ export const StyledCardLabel = styled.label`
 `;
 
 export const StyledCheckbox = styled.input`
-  width: 25px;
-  height: 25px;
   margin-right: 5px;
+  transform: scale(1.3);
   /* outline: 1px solid #fff; */
 `;
 
