@@ -40,7 +40,7 @@ export const StyledModalWindow = styled.div`
   max-width: 970px;
   position: relative;
   margin: 200px auto;
-  background-color: #fff;
+  background-color: #aaa;
   border-radius: 10px;
   padding: 30px 80px 100px;
   position: relative;
