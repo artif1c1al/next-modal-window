@@ -125,6 +125,12 @@ export const StyledCardInput = styled.input`
   width: 100%;
 `;
 
+export const StyledEmailInput = styled(StyledCardInput)`
+  font-size: 24px;
+  padding: 12px;
+  margin-bottom: 20px;
+`;
+
 export const StyledCardNumberGroup = styled.div`
   grid-area: cardNumber;
 `;
@@ -135,7 +141,7 @@ export const StyledCardCvcGroup = styled.div`
   grid-area: cardCvc;
 `;
 export const StyledCardGroup = styled.div`
-  display: ${(props) => (props.visability ? "grid" : "none")};
+  display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 24px;
   margin-bottom: 25px;
@@ -172,7 +178,6 @@ export const StyledCardLabel = styled.label`
 export const StyledCheckbox = styled.input`
   margin-right: 5px;
   transform: scale(1.3);
-  /* outline: 1px solid #fff; */
 `;
 
 export const StyledInfo = styled.div`
@@ -195,14 +200,25 @@ export const StyledSubmitBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1197bf;
+  background-color: rgb(17, 150, 191, 1);
   outline: none;
   border: none;
   border-radius: 3px;
+  cursor: pointer;
+  transition: 0.15s;
+
+  &:hover {
+    transform: translateY(-1px);
+    background-color: rgb(17, 150, 191, 0.9);
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
 `;
 
 export const StyledSelect = styled.div`
-  display: ${(props) => (props.visability ? "block" : "none")};
+  display: "block";
   width: 100%;
   padding: 20px;
   background-color: #eee;
@@ -212,6 +228,7 @@ export const StyledSelect = styled.div`
   font-size: 20px;
   font-weight: 700;
   outline: none;
+  margin-bottom: 25px;
   cursor: pointer;
 `;
 

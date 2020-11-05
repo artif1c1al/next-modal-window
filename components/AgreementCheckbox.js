@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledCheckbox, StyledAgreementCheckbox, StyledInfo } from "./styled";
+import { StyledCheckbox, StyledAgreementCheckbox } from "./styled";
 
 export default function AgreementCheckbox({ text, checked, onClick }) {
   return (

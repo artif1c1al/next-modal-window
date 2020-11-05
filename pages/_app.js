@@ -13,6 +13,10 @@ export default function MyApp({ Component, pageProps }) {
         body {
           font-family: "Roboto", sans-serif;
         }
+        label,
+        input[type="checkbox"] {
+          cursor: pointer;
+        }
       `}</style>
     </>
   );

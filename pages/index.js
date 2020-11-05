@@ -9,6 +9,7 @@ export default function Index() {
   const [cardNumber, setCardNumber] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [cvc, setCvs] = useState("");
+  const [paypalEmail, setPaypalEmail] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("PayPal");
   const [savePaymentInfo, setSavePaymentInfo] = useState(false);
   const [isIReadTheAgreement, setIsIReadTheAgreement] = useState(false);
@@ -31,6 +32,8 @@ export default function Index() {
         setIsIReadTheAgreement,
         isDropdownOpen,
         setIsDropdownOpen,
+        paypalEmail,
+        setPaypalEmail,
       }}
     >
       <div className="App">

@@ -1,41 +1,22 @@
-import React, { useContext, useState } from "react";
-import {
-  StyledSelect,
-  StyledLabel,
-  StyledRadioButton,
-  StyledSelectHeader,
-  StyledArrow,
-} from "./styled";
+import React, { useContext } from "react";
+import { StyledSelect, StyledLabel, StyledRadioButton } from "./styled";
 import { Context } from "../pages/index";
 
 export default function SelectCard() {
-  const {
-    paymentMethod,
-    setPaymentMethod,
-    isDropdownOpen,
-    setIsDropdownOpen,
-  } = useContext(Context);
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+  const { paymentMethod, setPaymentMethod } = useContext(Context);
 
   return (
     <>
-      <StyledSelectHeader onClick={toggleDropdown}>
-        {paymentMethod} <StyledArrow />
-      </StyledSelectHeader>
       <StyledSelect
         onChange={(e) => {
           setPaymentMethod(e.target.value);
-          console.log(paymentMethod);
+          // console.log(paymentMethod);
         }}
-        visability={isDropdownOpen}
       >
         <StyledLabel>
           <StyledRadioButton
             type="radio"
-            value="Кредитная/дебетовая карта (Stripe)"
+            value="Кредитная/дебетовая карта"
             name="paymentMethod"
           />
           Кредитная/дебетовая карта (Stripe)

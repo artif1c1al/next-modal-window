@@ -4,12 +4,11 @@ import {
   StyledModalWindow,
   StyledCross,
   StyledModalHeader,
-  StyledPayment,
   StyledSubmitBtn,
   StyledPaymentWrapper,
 } from "./styled";
 import OrderInfo from "./OrderInfo";
-import AddCard from "./AddCard";
+import AddPayment from "./AddPayment";
 import Agreements from "./Agreements";
 import { Context } from "../pages/index";
 
@@ -56,7 +55,7 @@ export default function ModalWindow({ isModalOpen, setIsModalOpen }) {
         <StyledModalHeader>Оформление участия</StyledModalHeader>
         <OrderInfo tovar={"Samsung Note 20"} poditog={"20,00"} itog={"20,00"} />
         <StyledPaymentWrapper>
-          <AddCard />
+          <AddPayment />
           <Agreements />
           <StyledSubmitBtn onClick={onSubmit}>ОПЛАТИТЬ</StyledSubmitBtn>
         </StyledPaymentWrapper>
