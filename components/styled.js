@@ -25,20 +25,22 @@ export const ButtonShow = styled.button`
 `;
 
 export const StyledModalWindowBackground = styled.div`
+  position: fixed;
   width: 100%;
-  height: 150%;
-  position: absolute;
+  height: 100%;
+  padding-top: 100px;
   top: 0;
+  left: 0;
+  overflow: auto;
   display: ${(props) => props.display || "none"};
   background-color: rgba(0, 0, 0, 0.4);
-  /* align-items: center; */
+  align-items: center;
   justify-content: center;
   z-index: 1;
 `;
 
 export const StyledModalWindow = styled.div`
   width: 970px;
-  height: 1200px;
   margin-top: 100px;
   background-color: #fff;
   border-radius: 4px;
