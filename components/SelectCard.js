@@ -1,24 +1,111 @@
-import React, { useContext } from "react";
-import { StyledSelect, StyledOption } from "./styled";
+import React, { useContext, useState } from "react";
+import {
+  StyledSelect,
+  StyledLabel,
+  StyledRadioButton,
+  StyledSelectHeader,
+  StyledArrow,
+} from "./styled";
 import { Context } from "../pages/index";
 
 export default function SelectCard() {
-  const { paymentMethod, setPaymentMethod } = useContext(Context);
+  const {
+    paymentMethod,
+    setPaymentMethod,
+    isDropdownOpen,
+    setIsDropdownOpen,
+  } = useContext(Context);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
-    <StyledSelect
-      value={paymentMethod}
-      onChange={(e) => setPaymentMethod(e.target.value)}
-    >
-      <option value="PayPal">PayPal</option>
-      <option value="SEPA">SEPA Direct Debit</option>
-      <option value="Bancontact">Bancontact</option>
-      <option value="Giropay">Giropay</option>
-      <option value="EPS">EPS</option>
-      <option value="iDeal">iDeal</option>
-      <option value="Przelewy24">Przelewy24 (P24)</option>
-      <option value="Alipay">Alipay</option>
-      <option value="Multibanco">Multibanco</option>
-      <option value="AccauntBalans">Баланс на аккаунте</option>
-    </StyledSelect>
+    <>
+      <StyledSelectHeader onClick={toggleDropdown}>
+        {paymentMethod} <StyledArrow />
+      </StyledSelectHeader>
+      <StyledSelect
+        onChange={(e) => {
+          setPaymentMethod(e.target.value);
+          console.log(paymentMethod);
+        }}
+        visability={isDropdownOpen}
+      >
+        <StyledLabel>
+          <StyledRadioButton
+            type="radio"
+            value="Кредитная/дебетовая карта (Stripe)"
+            name="paymentMethod"
+          />
+          Кредитная/дебетовая карта (Stripe)
+        </StyledLabel>
+        <StyledLabel>
+          <StyledRadioButton type="radio" value="PayPal" name="paymentMethod" />
+          PayPal
+        </StyledLabel>
+        <StyledLabel>
+          <StyledRadioButton
+            type="radio"
+            value="SEPA Direct Debit"
+            name="paymentMethod"
+          />
+          SEPA Direct Debit
+        </StyledLabel>
+        <StyledLabel>
+          <StyledRadioButton
+            type="radio"
+            value="Bancontact"
+            name="paymentMethod"
+          />
+          Bancontact
+        </StyledLabel>
+        <StyledLabel>
+          <StyledRadioButton
+            type="radio"
+            value="Giropay"
+            name="paymentMethod"
+          />
+          Giropay
+        </StyledLabel>
+        <StyledLabel>
+          <StyledRadioButton type="radio" value="EPS" name="paymentMethod" />
+          EPS
+        </StyledLabel>
+
+        <StyledLabel>
+          <StyledRadioButton type="radio" value="iDeal" name="paymentMethod" />
+          iDeal
+        </StyledLabel>
+        <StyledLabel>
+          <StyledRadioButton
+            type="radio"
+            value="Przelewy24 (24)"
+            name="paymentMethod"
+          />
+          Przelewy24 (24)
+        </StyledLabel>
+        <StyledLabel>
+          <StyledRadioButton type="radio" value="Alipay" name="paymentMethod" />
+          Alipay
+        </StyledLabel>
+        <StyledLabel>
+          <StyledRadioButton
+            type="radio"
+            value="Multicanco"
+            name="paymentMethod"
+          />
+          Multibanco
+        </StyledLabel>
+        <StyledLabel>
+          <StyledRadioButton
+            type="radio"
+            value="Баланс на аккаунте"
+            name="paymentMethod"
+          />
+          Баланс на аккаунте
+        </StyledLabel>
+      </StyledSelect>
+    </>
   );
 }

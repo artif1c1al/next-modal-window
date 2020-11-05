@@ -26,40 +26,70 @@ export const ButtonShow = styled.button`
 
 export const StyledModalWindowBackground = styled.div`
   position: fixed;
+  display: ${(props) => props.display || "none"};
   width: 100%;
   height: 100%;
-  padding-top: 100px;
   top: 0;
   left: 0;
   overflow: auto;
-  display: ${(props) => props.display || "none"};
   background-color: rgba(0, 0, 0, 0.4);
-  align-items: center;
-  justify-content: center;
   z-index: 1;
 `;
 
 export const StyledModalWindow = styled.div`
-  width: 970px;
-  margin-top: 100px;
+  max-width: 970px;
+  position: relative;
+  margin: 200px auto;
   background-color: #fff;
-  border-radius: 4px;
-  padding: 30px 80px;
+  border-radius: 10px;
+  padding: 30px 80px 100px;
   position: relative;
   z-index: 2;
   animation: ${modalfall} 0.3s ease-in;
   @media screen and (max-width: 800px) {
+    margin: auto;
     padding: 20px 40px;
   }
 `;
 
-export const StyledCross = styled.span`
-  position: relative;
-  width: 100%;
-  top: -10px;
-  left: 100%;
-  font-size: 30px;
-  cursor: pointer;
+export const StyledCross = styled.a`
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+  &:before,
+  &:after {
+    position: absolute;
+    left: 15px;
+    content: " ";
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+`;
+
+export const StyledArrow = styled.a`
+  position: absolute;
+  top: 22px;
+  right: 25px;
+  border: solid #777;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+
+  transform: rotate(45deg);
 `;
 
 export const StyledError = styled.span`
@@ -69,16 +99,17 @@ export const StyledError = styled.span`
 export const StyledModalHeader = styled.h1`
   text-align: center;
   font-weight: 200;
+  margin-top: 50px;
 `;
 
 export const StyledOrder = styled.div`
-  margin: 30px 0 40px;
+  margin: 30px 0 70px;
 `;
 
 export const StyledOrderHeader = styled.p`
   text-align: center;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 20px;
   margin: 0px 0 40px;
 `;
 
@@ -88,9 +119,9 @@ export const StyledOrderItem = styled.p`
 
 export const StyledCardInput = styled.input`
   padding: 20px;
-  margin-top: 7px;
+  margin-top: 13px;
   border-radius: 8px;
-  border: 1px solid #aaa;
+  border: 1px solid #dadada;
   width: 100%;
 `;
 
@@ -104,9 +135,9 @@ export const StyledCardCvcGroup = styled.div`
   grid-area: cardCvc;
 `;
 export const StyledCardGroup = styled.div`
-  display: grid;
+  display: ${(props) => (props.visability ? "grid" : "none")};
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 24px;
   margin-bottom: 25px;
   grid-template-areas:
     "cardNumber cardNumber"
@@ -121,18 +152,33 @@ export const StyledCardGroup = styled.div`
 `;
 
 export const StyledLabel = styled.label`
-  font-weight: 600;
   display: block;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  margin: 15px;
+`;
+
+export const StyledRadioButton = styled.input`
+  margin-right: 15px;
+  height: 18px;
+  width: 18px;
+`;
+
+export const StyledCardLabel = styled.label`
+  display: block;
+  font-weight: 600;
 `;
 
 export const StyledCheckbox = styled.input`
   width: 25px;
   height: 25px;
   margin-right: 5px;
+  /* outline: 1px solid #fff; */
 `;
 
 export const StyledInfo = styled.div`
-  color: #444;
+  color: #777;
 `;
 
 export const StyledAgreementCheckbox = styled(StyledInfo)`
@@ -157,7 +203,8 @@ export const StyledSubmitBtn = styled.button`
   border-radius: 3px;
 `;
 
-export const StyledSelect = styled.select`
+export const StyledSelect = styled.div`
+  display: ${(props) => (props.visability ? "block" : "none")};
   width: 100%;
   padding: 20px;
   background-color: #eee;
@@ -170,8 +217,15 @@ export const StyledSelect = styled.select`
   cursor: pointer;
 `;
 
+export const StyledSelectHeader = styled(StyledSelect)`
+  display: block;
+  position: relative;
+  margin-bottom: 2px;
+  padding-left: 30px;
+`;
+
 export const StyledAgreements = styled.div`
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 `;
 
 export const StyledPaymentWrapper = styled.div`
@@ -180,3 +234,5 @@ export const StyledPaymentWrapper = styled.div`
     margin: 0;
   }
 `;
+
+export const StyledAddCard = styled.div``;

@@ -43,7 +43,7 @@ export default function ModalWindow({ isModalOpen, setIsModalOpen }) {
   };
   return (
     <StyledModalWindowBackground
-      display={isModalOpen ? "flex" : "none"}
+      display={isModalOpen ? "block" : "none"}
       data-modalwindow
       onClick={(e) => {
         if (e.target.dataset.modalwindow) {
@@ -52,7 +52,7 @@ export default function ModalWindow({ isModalOpen, setIsModalOpen }) {
       }}
     >
       <StyledModalWindow>
-        <StyledCross onClick={() => setIsModalOpen(false)}>&times;</StyledCross>
+        <StyledCross onClick={() => setIsModalOpen(false)} />
         <StyledModalHeader>Оформление участия</StyledModalHeader>
         <OrderInfo tovar={"Samsung Note 20"} poditog={"20,00"} itog={"20,00"} />
         <StyledPaymentWrapper>

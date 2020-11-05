@@ -3,14 +3,14 @@ import { StyledCheckbox, StyledAgreementCheckbox, StyledInfo } from "./styled";
 
 export default function AgreementCheckbox({ text, checked, onClick }) {
   return (
-    <StyledAgreementCheckbox>
+    <StyledAgreementCheckbox as="label">
       <StyledCheckbox
         checked={checked}
         onChange={() => onClick(!checked)}
         id="checkbox"
         type="checkbox"
-      />{" "}
-      <lable htmlFor="checkbox">{text}</lable>
+      />
+      {text}
     </StyledAgreementCheckbox>
   );
 }

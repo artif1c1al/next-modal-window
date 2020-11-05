@@ -6,7 +6,7 @@ import {
   StyledCardCvcGroup,
   StyledCardExpiryGroup,
   StyledCardGroup,
-  StyledLabel,
+  StyledCardLabel,
   StyledTextboxInfo,
   StyledSubmitBtn,
   StyledInfo,
@@ -29,6 +29,8 @@ export default function AddCard() {
     setExpiryDate,
     cvc,
     setCvs,
+    isDropdownOpen,
+    setIsDropdownOpen,
   } = useContext(Context);
 
   const handleChangeCardNumber = (e) => {
@@ -51,14 +53,14 @@ export default function AddCard() {
   } = usePaymentInputs();
 
   return (
-    <>
+    <StyledAddCard>
       <SelectCard />
       <StyledTextboxInfo>
         Оплата кредитной картой MasterCard с помощью системы Stripe
       </StyledTextboxInfo>
-      <StyledCardGroup>
+      <StyledCardGroup visability={!isDropdownOpen}>
         <StyledCardNumberGroup>
-          <StyledLabel htmlFor="cardNum">Номер карты*</StyledLabel>
+          <StyledCardLabel htmlFor="cardNum">Номер карты*</StyledCardLabel>
           <StyledCardInput
             {...getCardNumberProps({ onChange: handleChangeCardNumber })}
             placeholder="4234 4342 4234 3342"
@@ -70,7 +72,7 @@ export default function AddCard() {
           )}
         </StyledCardNumberGroup>
         <StyledCardExpiryGroup>
-          <StyledLabel htmlFor="cardExpiry">Срок действия*</StyledLabel>
+          <StyledCardLabel htmlFor="cardExpiry">Срок действия*</StyledCardLabel>
           <StyledCardInput
             {...getExpiryDateProps({ onChange: handleChangeExpiryDate })}
             value={expiryDate}
@@ -78,7 +80,7 @@ export default function AddCard() {
           />
         </StyledCardExpiryGroup>
         <StyledCardCvcGroup>
-          <StyledLabel htmlFor="cardCvc">CVC код*</StyledLabel>
+          <StyledCardLabel htmlFor="cardCvc">CVC код*</StyledCardLabel>
           <StyledCardInput
             {...getCVCProps({ onChange: handleChangeCVC })}
             value={cvc}
@@ -86,6 +88,6 @@ export default function AddCard() {
           />
         </StyledCardCvcGroup>
       </StyledCardGroup>
-    </>
+    </StyledAddCard>
   );
 }

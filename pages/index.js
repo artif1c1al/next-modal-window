@@ -12,6 +12,7 @@ export default function Index() {
   const [paymentMethod, setPaymentMethod] = useState("PayPal");
   const [savePaymentInfo, setSavePaymentInfo] = useState(false);
   const [isIReadTheAgreement, setIsIReadTheAgreement] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(true);
 
   return (
     <Context.Provider
@@ -28,6 +29,8 @@ export default function Index() {
         setSavePaymentInfo,
         isIReadTheAgreement,
         setIsIReadTheAgreement,
+        isDropdownOpen,
+        setIsDropdownOpen,
       }}
     >
       <div className="App">
