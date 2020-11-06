@@ -10,9 +10,7 @@ export default function Index() {
   const [expiryDate, setExpiryDate] = useState("");
   const [cvc, setCvs] = useState("");
   const [paypalEmail, setPaypalEmail] = useState("");
-  const [paymentMethod, setPaymentMethod] = useState(
-    "Кредитная/дебетовая карта"
-  );
+  const [paymentMethod, setPaymentMethod] = useState("");
   const [savePaymentInfo, setSavePaymentInfo] = useState(false);
   const [isIReadTheAgreement, setIsIReadTheAgreement] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
