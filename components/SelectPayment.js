@@ -5,6 +5,7 @@ import {
   StyledRadioButton,
   StyledLabelAndInputContainer,
   StyledTextboxInfo,
+  StyledInfo,
 } from "./styled";
 import { Context } from "../pages/index";
 import AddPayment from "./AddPayment";
@@ -20,9 +21,7 @@ export default function SelectCard() {
       paymentMethod !== "Кредитная/дебетовая карта" &&
       paymentMethod !== "PayPal"
     ) {
-      return (
-        <StyledTextboxInfo>Оплата на сайте {paymentMethod}</StyledTextboxInfo>
-      );
+      return <StyledInfo>Оплата на сайте {paymentMethod}</StyledInfo>;
     }
     return null;
   };
@@ -61,99 +60,123 @@ export default function SelectCard() {
           </StyledLabel>
           {paymentMethod === "PayPal" && <AddPayment />}
         </StyledLabelAndInputContainer>
-        <StyledLabel>
-          <StyledRadioButton
-            type="radio"
-            value="SEPA Direct Debit"
-            name="paymentMethod"
-            checked={paymentMethod === "SEPA Direct Debit"}
-            onChange={onChangeValue}
-          />
-          SEPA Direct Debit
-        </StyledLabel>
-        <StyledLabel>
-          <StyledRadioButton
-            type="radio"
-            value="Bancontact"
-            name="paymentMethod"
-            checked={paymentMethod === "Bancontact"}
-            onChange={onChangeValue}
-          />
-          Bancontact
-        </StyledLabel>
-        <StyledLabel>
-          <StyledRadioButton
-            type="radio"
-            value="Giropay"
-            name="paymentMethod"
-            checked={paymentMethod === "Giropay"}
-            onChange={onChangeValue}
-          />
-          Giropay
-        </StyledLabel>
-        <StyledLabel>
-          <StyledRadioButton
-            type="radio"
-            value="EPS"
-            name="paymentMethod"
-            checked={paymentMethod === "EPS"}
-            onChange={onChangeValue}
-          />
-          EPS
-        </StyledLabel>
-
-        <StyledLabel>
-          <StyledRadioButton
-            type="radio"
-            value="iDeal"
-            name="paymentMethod"
-            checked={paymentMethod === "iDeal"}
-            onChange={onChangeValue}
-          />
-          iDeal
-        </StyledLabel>
-        <StyledLabel>
-          <StyledRadioButton
-            type="radio"
-            value="Przelewy24 (24)"
-            name="paymentMethod"
-            checked={paymentMethod === "Przelewy24 (24)"}
-            onChange={onChangeValue}
-          />
-          Przelewy24 (24)
-        </StyledLabel>
-        <StyledLabel>
-          <StyledRadioButton
-            type="radio"
-            value="Alipay"
-            name="paymentMethod"
-            checked={paymentMethod === "Alipay"}
-            onChange={onChangeValue}
-          />
-          Alipay
-        </StyledLabel>
-        <StyledLabel>
-          <StyledRadioButton
-            type="radio"
-            value="Multicanco"
-            name="paymentMethod"
-            checked={paymentMethod === "Multicanco"}
-            onChange={onChangeValue}
-          />
-          Multibanco
-        </StyledLabel>
-        <StyledLabel>
-          <StyledRadioButton
-            type="radio"
-            value="Баланс на аккаунте"
-            name="paymentMethod"
-            checked={paymentMethod === "Баланс на аккаунте"}
-            onChange={onChangeValue}
-          />
-          Баланс на аккаунте
-        </StyledLabel>
+        <div>
+          <StyledLabel>
+            <StyledRadioButton
+              type="radio"
+              value="SEPA Direct Debit"
+              name="paymentMethod"
+              checked={paymentMethod === "SEPA Direct Debit"}
+              onChange={onChangeValue}
+            />
+            SEPA Direct Debit
+          </StyledLabel>
+          {paymentMethod === "SEPA Direct Debit" && <SiteRedirect />}
+        </div>
+        <div>
+          <StyledLabel>
+            <StyledRadioButton
+              type="radio"
+              value="Bancontact"
+              name="paymentMethod"
+              checked={paymentMethod === "Bancontact"}
+              onChange={onChangeValue}
+            />
+            Bancontact
+          </StyledLabel>
+          {paymentMethod === "Bancontact" && <SiteRedirect />}
+        </div>
+        <div>
+          <StyledLabel>
+            <StyledRadioButton
+              type="radio"
+              value="Giropay"
+              name="paymentMethod"
+              checked={paymentMethod === "Giropay"}
+              onChange={onChangeValue}
+            />
+            Giropay
+          </StyledLabel>
+          {paymentMethod === "Giropay" && <SiteRedirect />}
+        </div>
+        <div>
+          <StyledLabel>
+            <StyledRadioButton
+              type="radio"
+              value="EPS"
+              name="paymentMethod"
+              checked={paymentMethod === "EPS"}
+              onChange={onChangeValue}
+            />
+            EPS
+          </StyledLabel>
+          {paymentMethod === "EPS" && <SiteRedirect />}
+        </div>
+        <div>
+          <StyledLabel>
+            <StyledRadioButton
+              type="radio"
+              value="iDeal"
+              name="paymentMethod"
+              checked={paymentMethod === "iDeal"}
+              onChange={onChangeValue}
+            />
+            iDeal
+          </StyledLabel>
+          {paymentMethod === "iDeal" && <SiteRedirect />}
+        </div>
+        <div>
+          <StyledLabel>
+            <StyledRadioButton
+              type="radio"
+              value="Przelewy24 (24)"
+              name="paymentMethod"
+              checked={paymentMethod === "Przelewy24 (24)"}
+              onChange={onChangeValue}
+            />
+            Przelewy24 (24)
+          </StyledLabel>
+          {paymentMethod === "Przelewy24 (24)" && <SiteRedirect />}
+        </div>
+        <div>
+          <StyledLabel>
+            <StyledRadioButton
+              type="radio"
+              value="Alipay"
+              name="paymentMethod"
+              checked={paymentMethod === "Alipay"}
+              onChange={onChangeValue}
+            />
+            Alipay
+          </StyledLabel>
+          {paymentMethod === "Alipay" && <SiteRedirect />}
+        </div>
+        <div>
+          <StyledLabel>
+            <StyledRadioButton
+              type="radio"
+              value="Multicanco"
+              name="paymentMethod"
+              checked={paymentMethod === "Multicanco"}
+              onChange={onChangeValue}
+            />
+            Multibanco
+          </StyledLabel>
+          {paymentMethod === "Multicanco" && <SiteRedirect />}
+        </div>
+        <div>
+          <StyledLabel>
+            <StyledRadioButton
+              type="radio"
+              value="Баланс на аккаунте"
+              name="paymentMethod"
+              checked={paymentMethod === "Баланс на аккаунте"}
+              onChange={onChangeValue}
+            />
+            Баланс на аккаунте
+          </StyledLabel>
+        </div>
       </StyledSelect>
-      <SiteRedirect />
     </>
   );
 }
