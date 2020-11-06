@@ -10,20 +10,24 @@ import AddPayment from "./AddPayment";
 
 export default function SelectCard() {
   const { paymentMethod, setPaymentMethod } = useContext(Context);
-
+  const onChangeValue = (e) => {
+    setPaymentMethod(e.target.value);
+  };
   return (
     <>
       <StyledSelect
-        onChange={(e) => {
-          setPaymentMethod(e.target.value);
-          // console.log(paymentMethod);
-        }}
+      // onChangeValue={(e) => {
+      //   setPaymentMethod(e.target.value);
+      //   // console.log(paymentMethod);
+      // }}
       >
         <StyledLabelAndInputContainer>
           <StyledLabel>
             <StyledRadioButton
               type="radio"
               value="Кредитная/дебетовая карта"
+              checked={paymentMethod === "Кредитная/дебетовая карта"}
+              onChange={onChangeValue}
               name="paymentMethod"
             />
             Кредитная/дебетовая карта (Stripe)
@@ -36,6 +40,8 @@ export default function SelectCard() {
               type="radio"
               value="PayPal"
               name="paymentMethod"
+              checked={paymentMethod === "PayPal"}
+              onChange={onChangeValue}
             />
             PayPal
           </StyledLabel>
@@ -46,6 +52,8 @@ export default function SelectCard() {
             type="radio"
             value="SEPA Direct Debit"
             name="paymentMethod"
+            checked={paymentMethod === "SEPA Direct Debit"}
+            onChange={onChangeValue}
           />
           SEPA Direct Debit
         </StyledLabel>
@@ -54,6 +62,8 @@ export default function SelectCard() {
             type="radio"
             value="Bancontact"
             name="paymentMethod"
+            checked={paymentMethod === "Bancontact"}
+            onChange={onChangeValue}
           />
           Bancontact
         </StyledLabel>
@@ -62,16 +72,30 @@ export default function SelectCard() {
             type="radio"
             value="Giropay"
             name="paymentMethod"
+            checked={paymentMethod === "Giropay"}
+            onChange={onChangeValue}
           />
           Giropay
         </StyledLabel>
         <StyledLabel>
-          <StyledRadioButton type="radio" value="EPS" name="paymentMethod" />
+          <StyledRadioButton
+            type="radio"
+            value="EPS"
+            name="paymentMethod"
+            checked={paymentMethod === "EPS"}
+            onChange={onChangeValue}
+          />
           EPS
         </StyledLabel>
 
         <StyledLabel>
-          <StyledRadioButton type="radio" value="iDeal" name="paymentMethod" />
+          <StyledRadioButton
+            type="radio"
+            value="iDeal"
+            name="paymentMethod"
+            checked={paymentMethod === "iDeal"}
+            onChange={onChangeValue}
+          />
           iDeal
         </StyledLabel>
         <StyledLabel>
@@ -79,11 +103,19 @@ export default function SelectCard() {
             type="radio"
             value="Przelewy24 (24)"
             name="paymentMethod"
+            checked={paymentMethod === "Przelewy24 (24)"}
+            onChange={onChangeValue}
           />
           Przelewy24 (24)
         </StyledLabel>
         <StyledLabel>
-          <StyledRadioButton type="radio" value="Alipay" name="paymentMethod" />
+          <StyledRadioButton
+            type="radio"
+            value="Alipay"
+            name="paymentMethod"
+            checked={paymentMethod === "Alipay"}
+            onChange={onChangeValue}
+          />
           Alipay
         </StyledLabel>
         <StyledLabel>
@@ -91,6 +123,8 @@ export default function SelectCard() {
             type="radio"
             value="Multicanco"
             name="paymentMethod"
+            checked={paymentMethod === "Multicanco"}
+            onChange={onChangeValue}
           />
           Multibanco
         </StyledLabel>
@@ -99,6 +133,8 @@ export default function SelectCard() {
             type="radio"
             value="Баланс на аккаунте"
             name="paymentMethod"
+            checked={paymentMethod === "Баланс на аккаунте"}
+            onChange={onChangeValue}
           />
           Баланс на аккаунте
         </StyledLabel>
