@@ -23,6 +23,7 @@ export default function CardForm() {
   } = useContext(Context);
 
   const handleChangeCardNumber = (e) => {
+    e.preventDefault();
     setCardNumber(e.target.value);
   };
 

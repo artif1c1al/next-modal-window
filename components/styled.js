@@ -168,11 +168,17 @@ export const StyledLabel = styled.label`
 export const StyledRadioButton = styled.input`
   margin-right: 15px;
   transform: scale(1.3);
+  display: block;
 `;
 
 export const StyledCardLabel = styled.label`
   display: block;
   font-weight: 600;
+`;
+
+export const StyledLabelAndInputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const StyledCheckbox = styled.input`

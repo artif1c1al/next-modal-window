@@ -11,6 +11,7 @@ import OrderInfo from "./OrderInfo";
 import AddPayment from "./AddPayment";
 import Agreements from "./Agreements";
 import { Context } from "../pages/index";
+import SelectCard from "./SelectCard";
 
 export default function ModalWindow({ isModalOpen, setIsModalOpen }) {
   const {
@@ -55,7 +56,8 @@ export default function ModalWindow({ isModalOpen, setIsModalOpen }) {
         <StyledModalHeader>Оформление участия</StyledModalHeader>
         <OrderInfo tovar={"Samsung Note 20"} poditog={"20,00"} itog={"20,00"} />
         <StyledPaymentWrapper>
-          <AddPayment />
+          {/* <AddPayment /> */}
+          <SelectCard />
           <Agreements />
           <StyledSubmitBtn onClick={onSubmit}>ОПЛАТИТЬ</StyledSubmitBtn>
         </StyledPaymentWrapper>

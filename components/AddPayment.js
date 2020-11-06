@@ -14,29 +14,6 @@ import PaypalForm from "./paymentMethods/PaypalForm";
 export default function AddPayment() {
   const { paymentMethod } = useContext(Context);
 
-  // const RenderPayment = (paymentMethod) => {
-  //   // switch (paymentMethod) {
-  //   //   case "Кредитная/дебетовая карта":
-  //   //     return <CardForm />;
-  //   //   case "PayPal":
-  //   //     return <PaypalForm />;
-  //   //   default:
-  //   //     return (
-  //   // <>
-  //   //   <StyledTextboxInfo>
-  //   //     Оплата на сайте {paymentMethod}
-  //   //   </StyledTextboxInfo>
-  //   // </>
-  //   //     );
-  //   // }
-  //   if (paymentMethod === "Кредитная/дебетовая карта") {
-  //     return <CardForm />;
-  //   }
-  //   return <PaypalForm />;
-  //   // if (paymentMethod === "PayPal") {
-  //   // }
-  // };
-
   const SiteRedirect = () => (
     <>
       <StyledTextboxInfo>Оплата на сайте {paymentMethod}</StyledTextboxInfo>
@@ -45,7 +22,6 @@ export default function AddPayment() {
 
   return (
     <StyledAddCard>
-      <SelectCard />
       {paymentMethod === "PayPal" ? (
         <PaypalForm />
       ) : paymentMethod === "Кредитная/дебетовая карта" ? (

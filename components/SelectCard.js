@@ -1,6 +1,12 @@
 import React, { useContext } from "react";
-import { StyledSelect, StyledLabel, StyledRadioButton } from "./styled";
+import {
+  StyledSelect,
+  StyledLabel,
+  StyledRadioButton,
+  StyledLabelAndInputContainer,
+} from "./styled";
 import { Context } from "../pages/index";
+import AddPayment from "./AddPayment";
 
 export default function SelectCard() {
   const { paymentMethod, setPaymentMethod } = useContext(Context);
@@ -13,18 +19,28 @@ export default function SelectCard() {
           // console.log(paymentMethod);
         }}
       >
-        <StyledLabel>
-          <StyledRadioButton
-            type="radio"
-            value="Кредитная/дебетовая карта"
-            name="paymentMethod"
-          />
-          Кредитная/дебетовая карта (Stripe)
-        </StyledLabel>
-        <StyledLabel>
-          <StyledRadioButton type="radio" value="PayPal" name="paymentMethod" />
-          PayPal
-        </StyledLabel>
+        <StyledLabelAndInputContainer>
+          <StyledLabel>
+            <StyledRadioButton
+              type="radio"
+              value="Кредитная/дебетовая карта"
+              name="paymentMethod"
+            />
+            Кредитная/дебетовая карта (Stripe)
+          </StyledLabel>
+          {paymentMethod === "Кредитная/дебетовая карта" && <AddPayment />}
+        </StyledLabelAndInputContainer>
+        <StyledLabelAndInputContainer>
+          <StyledLabel>
+            <StyledRadioButton
+              type="radio"
+              value="PayPal"
+              name="paymentMethod"
+            />
+            PayPal
+          </StyledLabel>
+          {paymentMethod === "PayPal" && <AddPayment />}
+        </StyledLabelAndInputContainer>
         <StyledLabel>
           <StyledRadioButton
             type="radio"
