@@ -4,6 +4,7 @@ import {
   StyledLabel,
   StyledRadioButton,
   StyledLabelAndInputContainer,
+  StyledTextboxInfo,
 } from "./styled";
 import { Context } from "../pages/index";
 import AddPayment from "./AddPayment";
@@ -13,6 +14,19 @@ export default function SelectCard() {
   const onChangeValue = (e) => {
     setPaymentMethod(e.target.value);
   };
+
+  const SiteRedirect = () => {
+    if (
+      paymentMethod !== "Кредитная/дебетовая карта" &&
+      paymentMethod !== "PayPal"
+    ) {
+      return (
+        <StyledTextboxInfo>Оплата на сайте {paymentMethod}</StyledTextboxInfo>
+      );
+    }
+    return null;
+  };
+
   return (
     <>
       <StyledSelect
@@ -139,6 +153,7 @@ export default function SelectCard() {
           Баланс на аккаунте
         </StyledLabel>
       </StyledSelect>
+      <SiteRedirect />
     </>
   );
 }
