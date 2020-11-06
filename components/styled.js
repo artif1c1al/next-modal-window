@@ -39,7 +39,7 @@ export const StyledModalWindowBackground = styled.div`
 export const StyledModalWindow = styled.div`
   max-width: 970px;
   position: relative;
-  margin: 200px auto;
+  margin: 120px auto 200px;
   background-color: #fff;
   border-radius: 10px;
   padding: 30px 80px 100px;
@@ -47,7 +47,7 @@ export const StyledModalWindow = styled.div`
   z-index: 2;
   animation: ${modalfall} 0.3s ease-in;
   @media screen and (max-width: 800px) {
-    margin: auto;
+    margin: 40px 20px;
     padding: 20px 40px;
   }
 `;
@@ -179,6 +179,7 @@ export const StyledCardLabel = styled.label`
 export const StyledLabelAndInputContainer = styled.div`
   display: flex;
   flex-direction: column;
+  box-sizing: content-box;
 `;
 
 export const StyledCheckbox = styled.input`
@@ -188,6 +189,10 @@ export const StyledCheckbox = styled.input`
 
 export const StyledInfo = styled.div`
   color: #777;
+`;
+
+export const StyledRedirectInfo = styled(StyledInfo)`
+  margin-left: 12px;
 `;
 
 export const StyledAgreementCheckbox = styled(StyledInfo)`

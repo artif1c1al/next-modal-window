@@ -21,14 +21,20 @@ export default function ModalWindow({ isModalOpen, setIsModalOpen }) {
     paymentMethod,
     savePaymentInfo,
     isIReadTheAgreement,
+    paypalEmail,
+    setPaypalEmail,
   } = useContext(Context);
 
   const onSubmit = () => {
     console.group("Payment info");
     console.log("🧾 Payment method: " + paymentMethod);
-    console.log("💳 Card number: " + cardNumber);
-    console.log("⌚ Card expiry date: " + expiryDate);
-    console.log("🤐 Card CVC: " + cvc);
+    if (cardNumber) {
+      console.log("💳 Card number: " + cardNumber);
+      console.log("⌚ Card expiry date: " + expiryDate);
+      console.log("🤐 Card CVC: " + cvc);
+    } else if (paypalEmail) {
+      console.log("💲 Paypal e-mail: " + paypalEmail);
+    }
     console.log(
       savePaymentInfo
         ? "😎 I want you to save my payment info"

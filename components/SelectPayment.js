@@ -6,6 +6,7 @@ import {
   StyledLabelAndInputContainer,
   StyledTextboxInfo,
   StyledInfo,
+  StyledRedirectInfo,
 } from "./styled";
 import { Context } from "../pages/index";
 import AddPayment from "./AddPayment";
@@ -21,7 +22,9 @@ export default function SelectCard() {
       paymentMethod !== "Кредитная/дебетовая карта" &&
       paymentMethod !== "PayPal"
     ) {
-      return <StyledInfo>Оплата на сайте {paymentMethod}</StyledInfo>;
+      return (
+        <StyledRedirectInfo>Оплата на сайте {paymentMethod}</StyledRedirectInfo>
+      );
     }
     return null;
   };
