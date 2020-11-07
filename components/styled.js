@@ -102,8 +102,8 @@ export const StyledModalHeader = styled.h1`
   margin-top: 50px;
 `;
 
-export const StyledOrder = styled.div`
-  margin: 30px 0 70px;
+export const StyledWrapper = styled.div`
+  margin: ${(props) => props.margin || 0};
 `;
 
 export const StyledOrderHeader = styled.p`
@@ -111,10 +111,6 @@ export const StyledOrderHeader = styled.p`
   font-weight: 500;
   font-size: 20px;
   margin: 0px 0 40px;
-`;
-
-export const StyledOrderItem = styled.p`
-  margin: 20px 0;
 `;
 
 export const StyledCardInput = styled.input`
@@ -189,19 +185,12 @@ export const StyledCheckbox = styled.input`
 
 export const StyledInfo = styled.div`
   color: #777;
-`;
-
-export const StyledRedirectInfo = styled(StyledInfo)`
-  margin-left: 12px;
+  margin: ${(props) => props.margin || 0};
 `;
 
 export const StyledAgreementCheckbox = styled(StyledInfo)`
   display: flex;
   align-items: center;
-`;
-
-export const StyledTextboxInfo = styled(StyledInfo)`
-  margin: 30px 0 15px;
 `;
 
 export const StyledSubmitBtn = styled.button`
@@ -250,12 +239,7 @@ export const StyledSelectHeader = styled(StyledSelect)`
   padding-left: 30px;
 `;
 
-export const StyledAgreements = styled.div`
-  margin-bottom: 40px;
-`;
-
-export const StyledPaymentWrapper = styled.div`
-  margin: 0 100px;
+export const StyledPaymentWrapper = styled(StyledWrapper)`
   @media screen and (max-width: 800px) {
     margin: 0;
   }

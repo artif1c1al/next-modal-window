@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { StyledTextboxInfo, StyledSubmitBtn, StyledAgreements } from "./styled";
+import { StyledInfo } from "./styled";
 import AgreementCheckbox from "./AgreementCheckbox";
 import { Context } from "../pages/index";
 
@@ -14,22 +14,22 @@ export default function Agreements() {
     setIsIReadTheAgreement,
   } = useContext(Context);
   return (
-    <StyledAgreements>
+    <StyledInfo margin="0 0 40px 0">
       <AgreementCheckbox
         checked={savePaymentInfo}
         onClick={setSavePaymentInfo}
         text={saveInfo}
       />
-      <StyledTextboxInfo>
+      <StyledInfo margin="30px 0 15px">
         Ваши личные данные будут использоваться для обработки ваших заказов,
         упращения вашей работы с сайтом и других целей, описанных в нашей
         Политике конфиденциальности.
-      </StyledTextboxInfo>
+      </StyledInfo>
       <AgreementCheckbox
         checked={isIReadTheAgreement}
         onClick={setIsIReadTheAgreement}
         text={readRules}
       />
-    </StyledAgreements>
+    </StyledInfo>
   );
 }

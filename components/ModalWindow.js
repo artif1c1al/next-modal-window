@@ -22,7 +22,6 @@ export default function ModalWindow({ isModalOpen, setIsModalOpen }) {
     savePaymentInfo,
     isIReadTheAgreement,
     paypalEmail,
-    setPaypalEmail,
   } = useContext(Context);
 
   const onSubmit = () => {
@@ -47,6 +46,7 @@ export default function ModalWindow({ isModalOpen, setIsModalOpen }) {
     );
     console.groupEnd();
   };
+
   return (
     <StyledModalWindowBackground
       display={isModalOpen ? "block" : "none"}
@@ -61,7 +61,7 @@ export default function ModalWindow({ isModalOpen, setIsModalOpen }) {
         <StyledCross onClick={() => setIsModalOpen(false)} />
         <StyledModalHeader>Оформление участия</StyledModalHeader>
         <OrderInfo tovar={"Samsung Note 20"} poditog={"20,00"} itog={"20,00"} />
-        <StyledPaymentWrapper>
+        <StyledPaymentWrapper margin="0 100px">
           {/* <AddPayment /> */}
           <SelectPayment />
           <Agreements />

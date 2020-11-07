@@ -1,22 +1,22 @@
 import React from "react";
-import { StyledOrder, StyledOrderHeader, StyledOrderItem } from "./styled";
+import { StyledOrderHeader, StyledWrapper } from "./styled";
 
 export default function OrderInfo({ tovar, poditog, itog }) {
   return (
-    <StyledOrder>
+    <StyledWrapper margin="30px 0 70px">
       <StyledOrderHeader>Ваш заказ</StyledOrderHeader>
-      <StyledOrderItem>
+      <StyledWrapper margin="20px 0">
         <b>Товар: </b>
         {tovar}
-      </StyledOrderItem>
-      <StyledOrderItem>
+      </StyledWrapper>
+      <StyledWrapper margin="20px 0">
         <b>Подытог: $</b>
         {poditog}
-      </StyledOrderItem>
-      <StyledOrderItem>
+      </StyledWrapper>
+      <StyledWrapper margin="20px 0">
         <b>Итог: $</b>
         {itog}
-      </StyledOrderItem>
-    </StyledOrder>
+      </StyledWrapper>
+    </StyledWrapper>
   );
 }

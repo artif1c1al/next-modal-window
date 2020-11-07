@@ -1,11 +1,5 @@
 import React, { useContext } from "react";
-import {
-  StyledAddCard,
-  StyledTextboxInfo,
-  StyledSubmitBtn,
-  StyledInfo,
-  StyledError,
-} from "./styled";
+import { StyledAddCard } from "./styled";
 import SelectPayment from "./SelectPayment";
 import { Context } from "../pages/index";
 import CardForm from "./paymentMethods/CardForm";
