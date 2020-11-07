@@ -158,13 +158,7 @@ export const StyledLabel = styled.label`
   font-weight: 400;
   display: flex;
   align-items: center;
-  margin: 15px;
-`;
-
-export const StyledRadioButton = styled.input`
-  margin-right: 15px;
-  transform: scale(1.3);
-  display: block;
+  margin: 20px 16px;
 `;
 
 export const StyledCardLabel = styled.label`
@@ -172,13 +166,16 @@ export const StyledCardLabel = styled.label`
   font-weight: 600;
 `;
 
-export const StyledLabelAndInputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  box-sizing: content-box;
+export const StyledSelectRadio = styled.input.attrs({
+  type: "radio",
+  name: "paymentMethod",
+})`
+  margin-right: 15px;
+  transform: scale(1.3);
+  display: block;
 `;
 
-export const StyledCheckbox = styled.input`
+export const StyledCheckbox = styled.input.attrs({ type: "checkbox" })`
   margin-right: 5px;
   transform: scale(1.3);
 `;

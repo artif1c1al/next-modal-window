@@ -1,32 +1,36 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   StyledSelect,
   StyledLabel,
-  StyledRadioButton,
+  StyledSelectRadio,
   StyledLabelAndInputContainer,
   StyledInfo,
+  StyledWrapper,
 } from "./styled";
 import { Context } from "../pages/index";
 import AddPayment from "./AddPayment";
 
 export default function SelectCard() {
   const { paymentMethod, setPaymentMethod } = useContext(Context);
+
   const onChangeValue = (e) => {
     setPaymentMethod(e.target.value);
+    // e.target = (
+    //   <div>
+    //     {e.target}
+    //   </div>
+    // );
   };
 
   const SiteRedirect = () => {
-    if (
+    return (
       paymentMethod !== "Кредитная/дебетовая карта" &&
-      paymentMethod !== "PayPal"
-    ) {
-      return (
+      paymentMethod !== "PayPal" && (
         <StyledInfo margin="0 0 0 12px">
           Оплата на сайте {paymentMethod}
         </StyledInfo>
-      );
-    }
-    return null;
+      )
+    );
   };
 
   return (
@@ -37,148 +41,126 @@ export default function SelectCard() {
       //   // console.log(paymentMethod);
       // }}
       >
-        <StyledLabelAndInputContainer>
+        <StyledWrapper>
           <StyledLabel>
-            <StyledRadioButton
-              type="radio"
-              value="Кредитная/дебетовая карта"
-              checked={paymentMethod === "Кредитная/дебетовая карта"}
+            <StyledSelectRadio
+              value={process.env.CARD}
+              checked={paymentMethod === process.env.CARD}
               onChange={onChangeValue}
-              name="paymentMethod"
             />
-            Кредитная/дебетовая карта (Stripe)
+            {process.env.CARD}
           </StyledLabel>
-          {paymentMethod === "Кредитная/дебетовая карта" && <AddPayment />}
-        </StyledLabelAndInputContainer>
-        <StyledLabelAndInputContainer>
+          {paymentMethod === process.env.CARD && <AddPayment />}
+        </StyledWrapper>
+        <StyledWrapper>
           <StyledLabel>
-            <StyledRadioButton
-              type="radio"
-              value="PayPal"
-              name="paymentMethod"
-              checked={paymentMethod === "PayPal"}
+            <StyledSelectRadio
+              value={process.env.PAYPAL}
+              checked={paymentMethod === process.env.PAYPAL}
               onChange={onChangeValue}
             />
-            PayPal
+            {process.env.PAYPAL}
           </StyledLabel>
           {paymentMethod === "PayPal" && <AddPayment />}
-        </StyledLabelAndInputContainer>
-        <div>
+        </StyledWrapper>
+        <StyledWrapper>
           <StyledLabel>
-            <StyledRadioButton
-              type="radio"
-              value="SEPA Direct Debit"
-              name="paymentMethod"
-              checked={paymentMethod === "SEPA Direct Debit"}
+            <StyledSelectRadio
+              value={process.env.SEPA}
+              checked={paymentMethod === process.env.SEPA}
               onChange={onChangeValue}
             />
-            SEPA Direct Debit
+            {process.env.SEPA}
           </StyledLabel>
-          {paymentMethod === "SEPA Direct Debit" && <SiteRedirect />}
-        </div>
-        <div>
+          {paymentMethod === process.env.SEPA && <SiteRedirect />}
+        </StyledWrapper>
+        <StyledWrapper>
           <StyledLabel>
-            <StyledRadioButton
-              type="radio"
-              value="Bancontact"
-              name="paymentMethod"
-              checked={paymentMethod === "Bancontact"}
+            <StyledSelectRadio
+              value={process.env.BANCONTACT}
+              checked={paymentMethod === process.env.BANCONTACT}
               onChange={onChangeValue}
             />
-            Bancontact
+            {process.env.BANCONTACT}
           </StyledLabel>
-          {paymentMethod === "Bancontact" && <SiteRedirect />}
-        </div>
-        <div>
+          {paymentMethod === process.env.BANCONTACT && <SiteRedirect />}
+        </StyledWrapper>
+        <StyledWrapper>
           <StyledLabel>
-            <StyledRadioButton
-              type="radio"
-              value="Giropay"
-              name="paymentMethod"
-              checked={paymentMethod === "Giropay"}
+            <StyledSelectRadio
+              value={process.env.GIROPAY}
+              checked={paymentMethod === process.env.GIROPAY}
               onChange={onChangeValue}
             />
-            Giropay
+            {process.env.GIROPAY}
           </StyledLabel>
-          {paymentMethod === "Giropay" && <SiteRedirect />}
-        </div>
-        <div>
+          {paymentMethod === process.env.GIROPAY && <SiteRedirect />}
+        </StyledWrapper>
+        <StyledWrapper>
           <StyledLabel>
-            <StyledRadioButton
-              type="radio"
-              value="EPS"
-              name="paymentMethod"
-              checked={paymentMethod === "EPS"}
+            <StyledSelectRadio
+              value={process.env.ESP}
+              checked={paymentMethod === process.env.ESP}
               onChange={onChangeValue}
             />
-            EPS
+            {process.env.ESP}
           </StyledLabel>
-          {paymentMethod === "EPS" && <SiteRedirect />}
-        </div>
-        <div>
+          {paymentMethod === process.env.ESP && <SiteRedirect />}
+        </StyledWrapper>
+        <StyledWrapper>
           <StyledLabel>
-            <StyledRadioButton
-              type="radio"
-              value="iDeal"
-              name="paymentMethod"
-              checked={paymentMethod === "iDeal"}
+            <StyledSelectRadio
+              value={process.env.IDEAL}
+              checked={paymentMethod === process.env.IDEAL}
               onChange={onChangeValue}
             />
-            iDeal
+            {process.env.IDEAL}
           </StyledLabel>
-          {paymentMethod === "iDeal" && <SiteRedirect />}
-        </div>
-        <div>
+          {paymentMethod === process.env.IDEAL && <SiteRedirect />}
+        </StyledWrapper>
+        <StyledWrapper>
           <StyledLabel>
-            <StyledRadioButton
-              type="radio"
-              value="Przelewy24 (24)"
-              name="paymentMethod"
-              checked={paymentMethod === "Przelewy24 (24)"}
+            <StyledSelectRadio
+              value={process.env.PRZELEWY}
+              checked={paymentMethod === process.env.PRZELEWY}
               onChange={onChangeValue}
             />
-            Przelewy24 (24)
+            {process.env.PRZELEWY}
           </StyledLabel>
-          {paymentMethod === "Przelewy24 (24)" && <SiteRedirect />}
-        </div>
-        <div>
+          {paymentMethod === process.env.PRZELEWY && <SiteRedirect />}
+        </StyledWrapper>
+        <StyledWrapper>
           <StyledLabel>
-            <StyledRadioButton
-              type="radio"
-              value="Alipay"
-              name="paymentMethod"
-              checked={paymentMethod === "Alipay"}
+            <StyledSelectRadio
+              value={process.env.ALIPAY}
+              checked={paymentMethod === process.env.ALIPAY}
               onChange={onChangeValue}
             />
-            Alipay
+            {process.env.ALIPAY}
           </StyledLabel>
-          {paymentMethod === "Alipay" && <SiteRedirect />}
-        </div>
-        <div>
+          {paymentMethod === process.env.ALIPAY && <SiteRedirect />}
+        </StyledWrapper>
+        <StyledWrapper>
           <StyledLabel>
-            <StyledRadioButton
-              type="radio"
-              value="Multicanco"
-              name="paymentMethod"
-              checked={paymentMethod === "Multicanco"}
+            <StyledSelectRadio
+              value={process.env.MULTICANCO}
+              checked={paymentMethod === process.env.MULTICANCO}
               onChange={onChangeValue}
             />
-            Multibanco
+            {process.env.MULTICANCO}
           </StyledLabel>
-          {paymentMethod === "Multicanco" && <SiteRedirect />}
-        </div>
-        <div>
+          {paymentMethod === process.env.MULTICANCO && <SiteRedirect />}
+        </StyledWrapper>
+        <StyledWrapper>
           <StyledLabel>
-            <StyledRadioButton
-              type="radio"
-              value="Баланс на аккаунте"
-              name="paymentMethod"
-              checked={paymentMethod === "Баланс на аккаунте"}
+            <StyledSelectRadio
+              value={process.env.BALANCE}
+              checked={paymentMethod === process.env.BALANCE}
               onChange={onChangeValue}
             />
-            Баланс на аккаунте
+            {process.env.BALANCE}
           </StyledLabel>
-        </div>
+        </StyledWrapper>
       </StyledSelect>
     </>
   );

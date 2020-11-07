@@ -7,8 +7,7 @@ export default function AgreementCheckbox({ text, checked, onClick }) {
       <StyledCheckbox
         checked={checked}
         onChange={() => onClick(!checked)}
-        id="checkbox"
-        type="checkbox"
+        // type="checkbox"
       />
       {text}
     </StyledAgreementCheckbox>

@@ -10,7 +10,7 @@ export default function AddPayment() {
 
   return (
     <StyledAddCard>
-      {paymentMethod === "PayPal" ? <PaypalForm /> : <CardForm />}
+      {paymentMethod === process.env.PAYPAL ? <PaypalForm /> : <CardForm />}
     </StyledAddCard>
   );
 }

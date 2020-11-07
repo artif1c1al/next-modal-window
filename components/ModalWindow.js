@@ -44,6 +44,7 @@ export default function ModalWindow({ isModalOpen, setIsModalOpen }) {
         ? "😎 I read the agreement"
         : "🛑 I didn't read the agreement"
     );
+    console.log(process.env.lol);
     console.groupEnd();
   };
 
